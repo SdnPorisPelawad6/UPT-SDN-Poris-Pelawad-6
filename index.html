@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDN Poris Pelawad 6</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #708e7a;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            position: relative;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            white-space: nowrap;
+        }
+
+        /* Navigation Links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            top: 100%;
+            left: 0;
+            min-width: 180px;
+            border-radius: 5px;
+            overflow: hidden;
+            z-index: 999;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 10px 15px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: fixed;
+                top: 60px;
+                right: 10px;
+                background-color: #708e7a;
+                padding: 10px;
+                border-radius: 8px;
+                z-index: 9999;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .dropdown-content {
+                position: static;
+                background-color: #8cb894;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="img/Logo_sekolah.png" alt="Logo SDN Poris Pelawad 6" class="logo-img">
+            <span class="logo-text">SDN PORIS PELAWAD 6</span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#">Beranda</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Profil</a>
+                <div class="dropdown-content">
+                    <a href="#">Sejarah Singkat</a>
+                    <a href="#">Visi & Misi</a>
+                    <a href="#">Guru & Tendik</a>
+                    <a href="#">Sarana & Prasarana</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Kesiswaan</a>
+                <div class="dropdown-content">
+                    <a href="#">Kegiatan</a>
+                    <a href="#">Tata Tertib</a>
+                    <a href="#">Ekstrakurikuler</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Adiwiyata</a>
+                <div class="dropdown-content">
+                    <a href="#">Sejarah Adiwiyata</a>
+                    <a href="#">Visi & Misi Adiwiyata</a>
+                    <a href="#">Struktur Adiwiyata</a>
+                    <a href="#">Program Adiwiyata</a>
+                    <a href="#">Dokumentasi</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Prestasi</a>
+                <div class="dropdown-content">
+                    <a href="#">Prestasi Sekolah</a>
+                    <a href="#">Prestasi Guru</a>
+                    <a href="#">Prestasi Murid</a>
+                </div>
+            </li>
+            <li><a href="#">Informasi</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
