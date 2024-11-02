@@ -486,8 +486,19 @@
 
     <script>
         function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
+            const navLinks = document.getElementById('nav-links');
             navLinks.classList.toggle('active');
+        }
+
+        // Hide menu on scroll
+        let prevScrollPos = window.pageYOffset;
+        window.onscroll = function() {
+            const navLinks = document.getElementById('nav-links');
+            let currentScrollPos = window.pageYOffset;
+            if (prevScrollPos > currentScrollPos) {
+                navLinks.classList.remove('active'); // Hide the menu on scroll down
+            }
+            prevScrollPos = currentScrollPos;
         }
     </script>
 </body>
