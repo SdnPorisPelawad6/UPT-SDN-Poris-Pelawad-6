@@ -113,6 +113,160 @@
             height: 3px;
             background-color: white;
         }
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background-image: url('img/bg.guru.jpeg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 100px 20px;
+            color: #f5f5f5;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Memberi efek gelap pada background */
+            z-index: 1;
+        }
+
+        .hero h1, .hero p {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem; /* Atur ukuran teks agar cukup besar */
+            font-weight: 600;
+            letter-spacing: 1px;
+            line-height: 1.3;
+            margin: 0;
+            background: linear-gradient(45deg, #7bdcb5, #fdd835); /* Gradasi hijau ke kuning */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        /* Container */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 15px;
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 0 10px;
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            background-color: #ffffff;
+            padding: 30px 10px;
+            border-radius: 10px;
+        }
+
+        /* Layout for Welcome Section */
+        .welcome-content {
+            align-items: center;
+        }
+
+        .image-wrapper {
+            flex: 0.4;
+            text-align: center;
+        }
+
+        .image-wrapper img {
+            max-width: 80%; /* Perkecil gambar kepala sekolah */
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-wrapper {
+            flex: 0.6;
+            padding-left: 15px;
+        }
+
+        .text-wrapper h2 {
+            font-size: 2.5rem;
+            color: #99b9a7;
+            margin-bottom: 5px;
+        }
+
+        .text-wrapper h3 {
+            font-size: 2rem;
+            color: #56726d;
+            margin-bottom: 10px;
+        }
+        .justify-text {
+            text-align: justify; /* Rata kanan dan kiri */
+        }
+        .kepala-sekolah-name {
+            margin-top: 20px; /* Beri jarak 20px dari atas */
+            font-size: 16px;  /* Atur ukuran font */
+            color: #333;      /* Warna teks */
+            text-align: left; /* Agar tetap rata kiri */
+        }
+        /* Divider Line */
+        .divider-line {
+            width: 100%;
+            height: 10px; /* Atur ketebalan garis */
+            background-color: #e0e0e0; /* Warna abu-abu muda */
+            margin: 20px 0; /* Jarak atas dan bawah */
+        }
+
+        /* Info Section */
+        .info-section {
+            background-color: white;
+            padding: 30px 10px;
+            margin-top: 15px;
+            border-radius: 10px;
+        }
+
+        /* Adiwiyata Content Layout */
+        .adiwiyata-content {
+            align-items: center;
+        }
+        .adiwiyata-title {
+            font-size: 2rem;     /* Atur ukuran teks lebih besar tetapi tidak berlebihan */
+            font-weight: bold;   /* Tebalkan teks */
+            text-align: center;  /* Rata tengah */
+            margin-bottom: 20px; /* Jarak bawah agar terlihat rapi */
+            color: #629477;      /* Warna teks (opsional) */
+        }
+
+
+        .text-content {
+            flex: 1;
+            margin-right: 15px;
+        }
+
+        .image-content {
+            flex: 0.5;
+            text-align: center;
+        }
+
+        .image-content img {
+            max-width: 80%; /* Perkecil gambar Adiwiyata */
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #708e7a;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 12px;
+        }
 
         /* Responsive Styles */
         @media (max-width: 768px) {
@@ -140,11 +294,71 @@
             .hamburger {
                 display: flex;
             }
+            .logo-container {
+        margin-left: 10px; /* Sesuaikan lagi untuk tampilan mobile */
+    }
+
+    .logo-text {
+        font-size: 1rem; /* Ukuran font lebih kecil agar tetap satu baris */
+    }
+
+    /* Adjust Hero Section */
+    .hero h1 {
+        font-size: 2.5rem; /* Sesuaikan ukuran font untuk layar kecil */
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    /* Adjust Container Layout */
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px; /* Beri ruang pada sisi layar */
+    }
+
+    /* Adjust Image and Text in Welcome Section */
+    .image-wrapper img {
+        max-width: 100%; /* Pastikan gambar menyesuaikan ukuran layar */
+    }
+
+    .text-wrapper h2 {
+        font-size: 2rem;
+        text-align: center; /* Rata tengah untuk tampilan lebih seimbang */
+    }
+
+    .text-wrapper h3 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    /* Divider Line */
+    .divider-line {
+        height: 5px; /* Tipiskan garis untuk tampilan mobile */
+    }
+
+    /* Adiwiyata Content Layout */
+    .text-content, .image-content {
+        flex: 1;
+        margin: 0; /* Hilangkan margin untuk ruang yang lebih baik */
+    }
+
+    .image-content img {
+        max-width: 100%;
+        margin-top: 20px; /* Jarak atas agar tidak terlalu dekat dengan teks */
+    }
+
+    /* Footer Adjustments */
+    .footer {
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+            
         }
     </style>
 </head>
 <body>
-
     <!-- Navbar -->
     <nav class="navbar">
         <div class="logo-container">
@@ -197,12 +411,84 @@
         </div>
     </nav>
 
+    <section class="hero">
+        <h1>SDN PORIS PELAWAD 6</h1>
+        <p>Selamat datang di portal informasi SDN Poris Pelawad 6</p>
+    </section>
+
+    <!-- Section: Sambutan Kepala Sekolah -->
+    <section class="welcome-section">
+        <div class="container">
+            <div class="image-wrapper">
+                <img src="img/kepala-sekolah.png" alt="Foto Kepala Sekolah">
+            </div>
+            <div class="text-wrapper">
+                <h2>Sambutan Kepala Sekolah</h2>
+                <h3>SDN Poris Pelawad 6</h3>
+                <!-- Tambahkan div untuk teks yang akan di-justify -->
+            <div class="justify-text">
+                <p>Assalamu'alaikum Warahmatullahi Wabarakatuh,</p>
+                <p>
+                    Salam Sejahtera untuk kita semua. Selamat datang di situs web resmi SDN Poris Pelawad 6. 
+                    Kami berharap situs ini dapat menjadi jendela informasi sekaligus media komunikasi bagi siswa, 
+                    orang tua, dan masyarakat.
+                </p>
+                <p>
+                    Melalui situs ini, kami berkomitmen untuk terus memberikan informasi terkini terkait kegiatan 
+                    sekolah, prestasi siswa, serta program-program pendidikan yang mendukung perkembangan potensi 
+                    anak didik kami. Semoga keberadaan situs ini dapat mempererat kerja sama dan partisipasi aktif 
+                    semua pihak dalam memajukan pendidikan di sekolah kita tercinta.
+                </p>
+                <p>
+                    Terima kasih atas kunjungan Anda. Semoga SDN Poris Pelawad 6 semakin berprestasi dan berkontribusi 
+                    dalam membentuk generasi penerus bangsa yang unggul dan berkarakter.
+                </p>
+                <p>Wassalamu'alaikum Warahmatullahi Wabarakatuh.</p>
+            </div>    
+                <!-- Nama Kepala Sekolah dengan jarak tambahan -->
+            <p class="kepala-sekolah-name">
+                <strong>Juhairiyah , S.pd, M.pd</strong><br>
+                Kepala Sekolah SDN Poris Pelawad 6
+            </p>
+            </div>
+        </div>
+    </section>
+    <div class="divider-line"></div>
+
+    <!-- Section: Sekolah Adiwiyata Mandiri -->
+    <section class="info-section">
+        <div class="container">
+            <div class="text-content">
+                <h2 class="adiwiyata-title">Sekolah Adiwiyata Mandiri</h2>
+                <!-- Tambahkan div untuk teks yang akan di-justify -->
+                <div class="justify-text">
+                    <p>
+                        Salam Sejahtera untuk kita semua. Selamat datang di situs web resmi SDN Poris Pelawad 6. Kami berharap
+                        situs ini dapat menjadi jendela informasi sekaligus media komunikasi bagi siswa, orang tua, dan masyarakat.
+                        Melalui situs ini, kami berkomitmen untuk terus memberikan informasi terkini terkait kegiatan sekolah, 
+                        prestasi siswa, serta program-program pendidikan yang mendukung perkembangan potensi anak didik kami.
+                    </p>
+                </div>
+            </div>
+            <div class="image-content">
+                <img src="img/Adiwiyata.png" alt="Tampilan Web">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>SDN NEGRI PORIS PELAWAD 6</strong></p>
+        <p>Jl. Panglima Polim Pelawad No.Rt 002/002, RR.005/RW.002, Poris Pelawad Utara, Kec. Cipondoh, Kota Tangerang, Banten 15141</p>
+        <p>Email: anisaamelia@gail.com | Instagram: sdnporis pelawad 6</p>
+        <p>&copy; 2024 UPT SDN PORIS PELAWAD 6</p>
+    </footer>
+
     <script>
         function toggleMenu() {
-            const navLinks = document.getElementById('nav-links');
+            const navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('active');
         }
     </script>
-
 </body>
 </html>
