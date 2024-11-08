@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDN Poris Pelawad 6</title>
+</head>
+<style>
+         /* Global Styles */
+         * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+}
+.wrapper {
+    flex: 1;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #708e7a;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem; /* Mengurangi padding */
+    position: relative;
+}
+
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 5px; /* Jarak dari tepi kiri */
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo-text {
+    font-size: 1.4rem; /* Ukuran yang sedikit lebih besar */
+    font-weight: bold;
+    color: white;
+    white-space: nowrap; /* Memastikan teks tetap satu baris */
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px; /* Ubah ukuran font jadi sedikit lebih besar */
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+
+    /* Dropdown Styles */
+    .dropdown-content {
+        display: none;
+        position: absolute; /* Pastikan ini ada untuk submenu */
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999; /* Tambahkan ini agar selalu berada di atas elemen lain */
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        color: rgb(17, 17, 17);
+        padding: 10px 15px;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f0f0f0;
+    }
+
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+    }
+    /* Hero Section */
+    .hero {
+            position: relative;
+            background: url('img/bg.guru.jpeg') center/cover no-repeat;
+            text-align: center;
+            padding: 80px 20px;
+            color: #fff;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Overlay gelap */
+            z-index: 1;
+        }
+
+        .hero h2 {
+            position: relative;
+            font-size: 70px;
+            font-weight: bold;
+            z-index: 2;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Menambahkan shadow */
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .title-section h2 {
+    font-size: 28px;
+    color: #315732;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.title-section hr {
+    border: 0;
+    border-top: 2px solid #315732;
+    width: 50px;
+    margin: 10px auto;
+}
+
+.rules {
+    list-style: none;
+    padding: 0;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.rule-title {
+    font-weight: bold;
+    color: #315732;
+    font-size: 18px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.rule-description {
+    margin-left: 20px; /* Memberi jarak agar teks lebih rapih */
+    line-height: 1.5;
+    color: #333;
+}
+
+.rules li {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+        .image-grid {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto; /* Agar bisa di-scroll secara horizontal jika layar tidak cukup lebar */
+    padding: 10px 0;
+}
+
+.image-grid img {
+    width: 200px; /* Sesuaikan lebar gambar sesuai keinginan */
+    border-radius: 5px;
+    min-height: 250px;
+    object-fit: cover;
+}
+
+.day-label {
+    text-align: center;
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+    /* Footer */
+    .footer {
+        background-color: #708e7a;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
+        font-size: 12px;
+    }
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        /* Navbar */
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            background-color: #708e7a;
+            padding: 10px;
+            border-radius: 8px;
+            z-index: 9999; /* Memastikan elemen di atas elemen lainnya */
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .logo-container {
+        margin-left: 10px; /* Sesuaikan lagi untuk tampilan mobile */
+    }
+
+    .logo-text {
+        font-size: 1rem; /* Ukuran font lebih kecil agar tetap satu baris */
+    }
+        .hamburger {
+            display: flex;
+        }
+
+        /* Adjust Hero Section */
+        .hero h1 {
+            font-size: 2rem; /* Sesuaikan ukuran font untuk layar kecil */
+        }
+        .hero h2 {
+        font-size: 2.5rem; /* Ukuran font lebih kecil */
+        }
+
+        .hero p {
+            font-size: 1rem;
+        }
+
+        /* Adjust Container Layout */
+        .container {
+            flex-direction: column;
+            align-items: center;
+            padding: 0 20px; /* Beri ruang pada sisi layar */
+        }
+
+        /* Adjust Image and Text in Welcome Section */
+        .image-wrapper img {
+            max-width: 100%; /* Pastikan gambar menyesuaikan ukuran layar */
+        }
+
+        .text-wrapper h2 {
+            font-size: 2rem;
+            text-align: center; /* Rata tengah untuk tampilan lebih seimbang */
+        }
+
+        .text-wrapper h3 {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        /* Divider Line */
+        .divider-line {
+            height: 5px; /* Tipiskan garis untuk tampilan mobile */
+        }
+
+        /* Adiwiyata Content Layout */
+        .text-content, .image-content {
+            flex: 1;
+            margin: 0; /* Hilangkan margin untuk ruang yang lebih baik */
+        }
+
+        .image-content img {
+            max-width: 100%;
+            margin-top: 20px; /* Jarak atas agar tidak terlalu dekat dengan teks */
+        }
+
+        /* Footer Adjustments */
+        .footer {
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+    }
+</style>
+<body>
+    <header>
+        <div class="wrapper">
+            <!-- Navbar -->
+            <nav class="navbar">
+                <div class="logo-container">
+                    <img src="img/Logo sekolah.png" alt="Logo SDN Poris Pelawad 6" class="logo-img">
+                    <span class="logo-text">SDN PORIS PELAWAD 6</span>
+                </div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="Beranda.html">Beranda</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Profil</a>
+                        <div class="dropdown-content">
+                            <a href="Sejarah.html">Sejarah Singkat</a>
+                            <a href="Visi dan Misi.html">Visi & Misi</a>
+                            <a href="Guru dan Tendik.html">Guru & Tendik</a>
+                            <a href="Sarana.html">Sarana & Prasana</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Kesiswaan</a>
+                        <div class="dropdown-content">
+                            <a href="#">Kegiatan</a>
+                            <a href="#">Tata Tertib</a>
+                            <a href="#">Ekstrakurikuler</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Adiwiyata</a>
+                        <div class="dropdown-content">
+                            <a href="#">Sejarah Adiwiyata</a>
+                            <a href="#">Visi & Misi Adiwiyata</a>
+                            <a href="#">Struktur Adiwiyata</a>
+                            <a href="#">Program Adiwiyata</a>
+                            <a href="#">Doumentasi</a>
+                        </div>
+                    </li>
+    
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Prestasi</a>
+                        <div class="dropdown-content">
+                            <a href="#">Prestasi Sekolah</a>
+                            <a href="#">Prestasi Guru</a>
+                            <a href="#">Prestasi Murid</a>
+                        </div>
+                    </li>
+                    <li><a href="#">Informasi</a></li>
+                </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>TATA TERTIB</h2>
+    </section>
+
+    <div class="container">
+        <div class="title-section">
+            <h2>TATA TERTIB BERPAKAIAN</h2>
+        </div>
+        <ul class="rules">
+            <li><span>1. Seragam Sekolah</span><br>
+                Siswa wajib mengenakan seragam sekolah sesuai ketentuan hari yang telah ditetapkan.</li>
+            <li><span>2. Kerapihan dan Kebersihan</span><br>
+                Siswa diharuskan menjaga kerapihan pakaian, dengan baju dimasukkan dan sepatu hitam yang bersih.</li>
+            <li><span>3. Aksesoris</span><br>
+                Siswa dilarang mengenakan aksesoris berlebihan yang tidak sesuai dengan seragam sekolah.</li>
+            <li><span>4. Rambut dan Penampilan</span><br>
+                Rambut harus rapi; bagi siswa laki-laki tidak boleh terlalu panjang, dan siswa perempuan harus merapikan rambut sesuai aturan sekolah.</li>
+        </ul>
+
+        <div class="image-grid">
+            <div>
+                <img src="img/bg.guru.jpeg" alt="Image Senin">
+                <div class="day-label">SENIN</div>
+            </div>
+            <div>
+                <img src="img/bg.guru.jpeg" alt="Image Selasa">
+                <div class="day-label">SELASA</div>
+            </div>
+            <div>
+                <img src="img/bg.guru.jpeg" alt="Image Rabu">
+                <div class="day-label">RABU</div>
+            </div>
+            <div>
+                <img src="img/bg.guru.jpeg" alt="Image Kamis">
+                <div class="day-label">KAMIS</div>
+            </div>
+            <div>
+                <img src="img/bg.guru.jpeg" alt="Image Jumat">
+                <div class="day-label">JUMAT</div>
+            </div>
+            <div>
+                <img src="img/bg.guru.jpeg" alt="Image Sabtu">
+                <div class="day-label">Sabtu</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>SDN NEGRI PORIS PELAWAD 6</strong></p>
+        <p>Jl. Panglima Polim Pelawad No.Rt 002/002, RR.005/RW.002, Poris Pelawad Utara, Kec. Cipondoh, Kota Tangerang, Banten 15141</p>
+        <p>Email: anisaamelia@gail.com | Instagram: sdnporis pelawad 6</p>
+        <p>&copy; 2024 UPT SDN PORIS PELAWAD 6</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
