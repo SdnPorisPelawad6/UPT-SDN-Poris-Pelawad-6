@@ -258,54 +258,47 @@ body {
     color: #666;
     margin: 10px 0 0 0;
 }
-/* Styling untuk Section Berbagai Macam Ekstrakurikuler */
-.berbagai-macam {
+/* Berbagai Macam Ekstrakurikuler */
+.section-ekstrakurikuler {
     text-align: center;
-    padding: 40px;
-    background-color: #fff;
+    margin-top: 20px;
 }
 
-.berbagai-macam h2 {
-    font-size: 2em;
-    color: green;
+.section-ekstrakurikuler h2 {
     margin-bottom: 20px;
+    color: #49783a;
 }
 
-/* Carousel Styling */
-.carousel {
+.ekstra-grid {
     display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 20px;
-    padding: 20px;
-    justify-content: center; /* Memusatkan carousel di tengah */
+    flex-wrap: wrap;
+    gap: 15px; /* Menambahkan sedikit jarak antar item */
+    justify-content: center;
 }
 
-.carousel-item {
-    flex: 0 0 300px;
-    background-color: #e0e0e0;
-    padding: 20px;
-    border-radius: 10px;
-    scroll-snap-align: center;
-    text-align: left;
+.ekstra-item {
+    width: 500px; /* Memperbesar lebar item sedikit */
+    text-align: center;
+    background-color: #ffffff;
+    padding: 15px; /* Menambah sedikit padding */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.carousel-item h3 {
-    font-size: 1.2em;
-    color: #4CAF50;
-    margin-bottom: 10px;
+.ekstra-item img {
+    width: 100%;
+    border-radius: 5px;
+    height: 300px; /* Memperbesar tinggi gambar sedikit */
+    object-fit: cover;
 }
 
-.carousel-item ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.carousel-item ul li {
-    font-size: 1em;
+.ekstra-item p {
+    margin-top: 8px;
     color: #333;
-    margin: 5px 0;
+    font-weight: bold;
+    font-size: 30px; /* Ukuran font sedikit diperbesar */
 }
+
 
 
         /* Footer */
@@ -320,6 +313,7 @@ body {
 
         /* Responsive Styles */
         @media (max-width: 768px) {
+            /* Navbar adjustments */
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -340,10 +334,6 @@ body {
                 display: flex;
             }
 
-            .logo-text {
-                font-size: 1rem;
-            }
-
             /* Hero Section */
             .hero h1 {
                 font-size: 2rem;
@@ -359,60 +349,47 @@ body {
                 align-items: center;
                 padding: 0 20px;
             }
-            .foto {
-                max-width: 100%; /* Gambar akan memenuhi lebar wadah di layar kecil */
-            }
-            
-            .foto-img {
-                max-width: 100%;
-                border-radius: 8px; /* Mengurangi radius agar tampilan lebih dinamis di mobile */
-            }
+
+            /* Visi dan Misi adjustments */
             .visi-misi {
                 flex-direction: column;
                 align-items: center;
             }
-            /* Pengelompokan */
-    .pengelompokan .grid {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
 
-    /* Tujuan Section */
-    .tujuan-container {
-        flex-direction: column;
-        align-items: center;
-    }
+            .foto {
+                max-width: 100%;
+            }
 
-    .tujuan-container .box,
-    .tujuan-container img {
-        max-width: 100%;
-    }
+            .foto-img {
+                max-width: 100%;
+                border-radius: 8px;
+            }
 
-    /* Carousel Styling */
-.carousel {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 20px;
-    padding: 20px;
-    justify-content: center;
-    -webkit-overflow-scrolling: touch; /* Scroll lebih halus untuk perangkat mobile */
-}
+            /* Pengelompokan adjustments */
+            .pengelompokan .grid {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
 
-.carousel-item {
-    flex: 0 0 300px;
-    background-color: #e0e0e0;
-    padding: 20px;
-    border-radius: 10px;
-    scroll-snap-align: center;
-    text-align: left;
-}
+           
+            .carousel {
+                overflow-x: scroll; /* Pastikan bisa scroll pada layar kecil */
+                display: flex;
+                gap: 10px; /* Spasi antar item */
+                padding: 20px;
+            }
 
-/* Sembunyikan scrollbar di perangkat mobile */
-.carousel::-webkit-scrollbar {
-    display: none;
-}
+            .carousel-item {
+                flex: 0 0 90%; /* Lebar 90% agar pas di layar kecil */
+                max-width: 100%;
+            }
+        
+
+            /* Hide scrollbar on mobile */
+            .carousel::-webkit-scrollbar {
+                display: none;
+            }
 
         }
     </style>
@@ -423,7 +400,7 @@ body {
             <!-- Navbar -->
             <nav class="navbar">
                 <div class="logo-container">
-                    <img src="img/Logo sekolah.png" alt="Logo SDN Poris Pelawad 6" class="logo-img">
+                    <img src="e:\xampp\htdocs\BERANDA 2\Logo sekolah.png" alt="Logo SDN Poris Pelawad 6" class="logo-img">
                     <span class="logo-text">SDN PORIS PELAWAD 6</span>
                 </div>
                 <ul class="nav-links" id="nav-links">
@@ -440,7 +417,6 @@ body {
                     <li class="dropdown">
                         <a href="#" class="dropbtn">Kesiswaan</a>
                         <div class="dropdown-content">
-                            <a href="#">Kegiatan</a>
                             <a href="Tata Tertib">Tata Tertib</a>
                             <a href="#">Ekstrakurikuler</a>
                         </div>
@@ -498,7 +474,7 @@ body {
             </div>
         </div>
     </section>
-    <div class="divider-line"></div>
+    
 
     <section class="pengelompokan">
         <h2>pengelompokan Ekstrakulikuler</h2>
@@ -513,67 +489,17 @@ body {
             </div>
         </div>
     </section>
+    <div class="divider-line"></div>
 
-
-    <section class="berbagai-macam">
+    <section class="section-ekstrakurikuler">
         <h2>Berbagai Macam Ekstrakurikuler</h2>
-        <div class="carousel">
-            <div class="carousel-item">
-                <h3>Bidang Seni & Budaya</h3>
-                <ul>
-                    <li>1.Desain</li>
-                    <li>2.Musik</li>
-                </ul>
-            </div>
-            <div class="carousel-item">
-                <h3>Bidang Olahraga</h3>
-                <ul>
-                    <li>Sepak Bola</li>
-                    <li>Basket</li>
-                </ul>
-            </div>
-            <div class="carousel-item">
-                <h3>Bidang Bahasa</h3>
-                <ul>
-                    <li>Bahasa Inggris</li>
-                    <li>Bahasa Jepang</li>
-                </ul>
-            </div>
-            <div class="carousel-item">
-                <h3>Bidang Bahasa</h3>
-                <ul>
-                    <li>Bahasa Inggris</li>
-                    <li>Bahasa Jepang</li>
-                </ul>
-            </div>
-            <div class="carousel-item">
-                <h3>Bidang Bahasa</h3>
-                <ul>
-                    <li>Bahasa Inggris</li>
-                    <li>Bahasa Jepang</li>
-                </ul>
-            </div>
-            <div class="carousel-item">
-                <h3>Bidang Bahasa</h3>
-                <ul>
-                    <li>Bahasa Inggris</li>
-                    <li>Bahasa Jepang</li>
-                </ul>
-            </div>
-            <div class="carousel-item">
-                <h3>Bidang Bahasa</h3>
-                <ul>
-                    <li>Bahasa Inggris</li>
-                    <li>Bahasa Jepang</li>
-                </ul>
-            </div>
-            <div class="carousel-item">
-                <h3>Bidang Bahasa</h3>
-                <ul>
-                    <li>Bahasa Inggris</li>
-                    <li>Bahasa Jepang</li>
-                </ul>
-            </div>
+        <div class="ekstra-grid">
+            <div class="ekstra-item"><img src="img/bg.guru.jpeg" alt="Pramuka"><p>Pramuka</p></div>
+            <div class="ekstra-item"><img src="img/bg.guru.jpeg" alt="ETQ"><p>BTQ</p></div>
+            <div class="ekstra-item"><img src="img/bg.guru.jpeg" alt="Voli"><p>Voli</p></div>
+            <div class="ekstra-item"><img src="img/bg.guru.jpeg" alt="Futsal"><p>Futsal</p></div>
+            <div class="ekstra-item"><img src="img/bg.guru.jpeg" alt="Seni Tari"><p>Seni Tari</p></div>
+            <div class="ekstra-item"><img src="img/bg.guru.jpeg" alt="Menggambar"><p>Menggambar</p></div>
         </div>
     </section>
 
