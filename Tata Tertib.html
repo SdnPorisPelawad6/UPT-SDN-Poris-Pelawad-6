@@ -192,29 +192,31 @@ body {
 }
 
 
-        .image-grid {
+.image-grid {
     display: flex;
+    flex-direction: column;
+    align-items: center; /* Membuat gambar dan teks di tengah */
     gap: 10px;
-    overflow-x: auto; /* Agar bisa di-scroll secara horizontal jika layar tidak cukup lebar */
     padding: 10px 0;
 }
 
 .image-grid img {
-    width: 200px; /* Sesuaikan lebar gambar sesuai keinginan */
+    width: 400px; /* Lebar tetap untuk gambar */
+    height: 350px; /* Tinggi tetap untuk gambar */
     border-radius: 5px;
-    min-height: 250px;
-    object-fit: cover;
+    object-fit: cover; /* Memastikan gambar terpotong jika perlu, tetap menjaga proporsi */
 }
 
 .day-label {
     text-align: center;
-    background-color: #4caf50;
+    background-color: #708e7a;
     color: #fff;
-    font-size: 14px;
-    padding: 5px;
+    font-size: 16px; /* Ukuran teks sedikit diperbesar */
+    padding: 5px 10px;
     border-radius: 5px;
     margin-top: 5px;
 }
+
 
     /* Footer */
     .footer {
@@ -387,30 +389,10 @@ body {
                 Rambut harus rapi; bagi siswa laki-laki tidak boleh terlalu panjang, dan siswa perempuan harus merapikan rambut sesuai aturan sekolah.</li>
         </ul>
 
-        <div class="image-grid">
+        <div class="image-grid" id="imageGrid">
             <div>
-                <img src="img/bg.guru.jpeg" alt="Image Senin">
-                <div class="day-label">SENIN</div>
-            </div>
-            <div>
-                <img src="img/bg.guru.jpeg" alt="Image Selasa">
-                <div class="day-label">SELASA</div>
-            </div>
-            <div>
-                <img src="img/bg.guru.jpeg" alt="Image Rabu">
-                <div class="day-label">RABU</div>
-            </div>
-            <div>
-                <img src="img/bg.guru.jpeg" alt="Image Kamis">
-                <div class="day-label">KAMIS</div>
-            </div>
-            <div>
-                <img src="img/bg.guru.jpeg" alt="Image Jumat">
-                <div class="day-label">JUMAT</div>
-            </div>
-            <div>
-                <img src="img/bg.guru.jpeg" alt="Image Sabtu">
-                <div class="day-label">Sabtu</div>
+                <img src="img/bg.guru.jpeg" alt="Image Senin" id="slideshowImage">
+                <div class="day-label" id="dayLabel">PUTIH MERAH</div>
             </div>
         </div>
     </div>
@@ -424,6 +406,34 @@ body {
     </footer>
 
     <script>
+        // Gambar dan hari-hari untuk slideshow
+        const slides = [
+            { src: 'img/bg.guru.jpeg', day: 'PUTIH MERAH' },
+            { src: 'img/kepala-sekolah.png', day: 'BATIK' },
+            { src: 'img/Adiwiyata.png', day: 'OLAHRAGA' },
+            { src: 'img/bg.guru.jpeg', day: 'PRAMUKA' },
+            { src: 'img/bg.guru.jpeg', day: 'PUTIH HITAM' }
+        ];
+        
+        let currentSlide = 0; // Indeks slide yang sedang ditampilkan
+
+        function showSlide(index) {
+            const slideshowImage = document.getElementById('slideshowImage');
+            const dayLabel = document.getElementById('dayLabel');
+            
+            // Ubah sumber gambar dan teks hari
+            slideshowImage.src = slides[index].src;
+            dayLabel.textContent = slides[index].day;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length; // Pindah ke slide berikutnya
+            showSlide(currentSlide);
+        }
+
+        // Mulai slideshow otomatis setiap 3 detik
+        setInterval(nextSlide, 3000);
+
         function toggleMenu() {
             const navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('active');
