@@ -201,11 +201,15 @@ body {
 }
 
 .image-grid img {
-    width: 400px; /* Lebar tetap untuk gambar */
-    height: 350px; /* Tinggi tetap untuk gambar */
+    max-width: 500px; /* Maksimum lebar tetap */
+    max-height: 400px; /* Maksimum tinggi tetap */
+    width: 100%; /* Lebar penuh dalam container tanpa melebihi max-width */
+    height: auto; /* Mempertahankan aspek rasio */
     border-radius: 5px;
-    object-fit: cover; /* Memastikan gambar terpotong jika perlu, tetap menjaga proporsi */
+    object-fit: cover;
+    flex-shrink: 0; /* Mencegah gambar mengecil di tampilan yang lebih kecil */
 }
+
 
 .day-label {
     text-align: center;
@@ -312,6 +316,48 @@ body {
             padding: 20px;
             font-size: 0.9rem;
         }
+        @media (max-width: 414px) {
+        /* Navbar adjustments */
+        .logo-container {
+            margin-left: 10px;
+        }
+
+        .logo-text {
+            font-size: 1rem;
+        }
+
+        /* Adjust Hero Section */
+        .hero h2 {
+            font-size: 2rem;
+        }
+
+        /* Reduce image size for mobile view */
+        .image-grid img {
+            width: 100%; /* Set width to 100% for better scaling on mobile */
+            height: auto; /* Let height adjust automatically */
+        }
+
+        /* Container and Footer adjustments */
+        .container {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .footer {
+            padding: 15px;
+            font-size: 0.8rem;
+        }
+    }
+
+    @media (max-width: 375px) {
+        /* Additional adjustments for smaller screen width */
+        .hero h2 {
+            font-size: 1.8rem;
+        }
+
+        .nav-links a {
+            font-size: 12px;
+        }
     }
 </style>
 <body>
@@ -391,7 +437,7 @@ body {
 
         <div class="image-grid" id="imageGrid">
             <div>
-                <img src="img/bg.guru.jpeg" alt="Image Senin" id="slideshowImage">
+                <img src="img/yakkk.jpeg" alt="Image Senin" id="slideshowImage">
                 <div class="day-label" id="dayLabel">PUTIH MERAH</div>
             </div>
         </div>
@@ -408,11 +454,11 @@ body {
     <script>
         // Gambar dan hari-hari untuk slideshow
         const slides = [
-            { src: 'img/bg.guru.jpeg', day: 'PUTIH MERAH' },
-            { src: 'img/kepala-sekolah.png', day: 'BATIK' },
-            { src: 'img/Adiwiyata.png', day: 'OLAHRAGA' },
-            { src: 'img/bg.guru.jpeg', day: 'PRAMUKA' },
-            { src: 'img/bg.guru.jpeg', day: 'PUTIH HITAM' }
+            { src: 'img/yakkk.jpeg', day: 'PUTIH MERAH' },
+            { src: 'img/ykk.jpeg', day: 'BATIK' },
+            { src: 'img/yakkk.jpeg', day: 'OLAHRAGA' },
+            { src: 'img/ykk.jpeg', day: 'PRAMUKA' },
+            { src: 'img/yakkk.jpeg', day: 'PUTIH HITAM' }
         ];
         
         let currentSlide = 0; // Indeks slide yang sedang ditampilkan
