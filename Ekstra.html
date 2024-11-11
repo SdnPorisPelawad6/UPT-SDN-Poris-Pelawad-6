@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ekstrakurikuler - SDN PORIS PELAWAD 6</title>
-    <style>
+<style>
           /* Global Styles */
-* {
+         * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -74,41 +74,41 @@ body {
 }
 
 
-/* Dropdown Styles */
-.dropdown-content {
-    display: none;
-    position: absolute; /* Pastikan ini ada untuk submenu */
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 999; /* Tambahkan ini agar selalu berada di atas elemen lain */
-}
+    /* Dropdown Styles */
+    .dropdown-content {
+        display: none;
+        position: absolute; /* Pastikan ini ada untuk submenu */
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999; /* Tambahkan ini agar selalu berada di atas elemen lain */
+    }
 
-.dropdown:hover .dropdown-content {
-    display: block;
-}
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
 
-.dropdown-content a {
-    color: rgb(17, 17, 17);
-    padding: 10px 15px;
-    display: block;
-}
+    .dropdown-content a {
+        color: rgb(17, 17, 17);
+        padding: 10px 15px;
+        display: block;
+    }
 
-.dropdown-content a:hover {
-    background-color: #f0f0f0;
-}
+    .dropdown-content a:hover {
+        background-color: #f0f0f0;
+    }
 
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-}
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+    }
 
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-}
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+    }
 
         /* Hero Section */
         .hero {
@@ -296,7 +296,7 @@ body {
     margin-top: 8px;
     color: #333;
     font-weight: bold;
-    font-size: 30px; /* Ukuran font sedikit diperbesar */
+    font-size: 25px; /* Ukuran font sedikit diperbesar */
 }
 
 
@@ -313,26 +313,33 @@ body {
 
         /* Responsive Styles */
         @media (max-width: 768px) {
-            /* Navbar adjustments */
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: fixed;
-                top: 60px;
-                right: 10px;
-                background-color: #708e7a;
-                padding: 10px;
-                border-radius: 8px;
-                z-index: 9999;
-            }
+            /* Navbar */
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            background-color: #708e7a;
+            padding: 10px;
+            border-radius: 8px;
+            z-index: 9999; /* Memastikan elemen di atas elemen lainnya */
+        }
 
-            .nav-links.active {
-                display: flex;
-            }
+        .nav-links.active {
+            display: flex;
+        }
 
-            .hamburger {
-                display: flex;
-            }
+        .logo-container {
+        margin-left: 10px; /* Sesuaikan lagi untuk tampilan mobile */
+    }
+
+    .logo-text {
+        font-size: 1rem; /* Ukuran font lebih kecil agar tetap satu baris */
+    }
+        .hamburger {
+            display: flex;
+        }
 
             /* Hero Section */
             .hero h1 {
@@ -358,11 +365,20 @@ body {
 
             .foto {
                 max-width: 100%;
+                display: flex;
+                justify-content: center;
             }
 
             .foto-img {
-                max-width: 100%;
+                width: 800%; /* Menyusun ulang agar gambar memenuhi wadah di mobile */
+                max-width: 80%; /* Membatasi gambar agar tidak terlalu besar */
+                height: auto; /* Mempertahankan aspek rasio */
                 border-radius: 8px;
+            }
+            .text-section {
+                max-width: 90%; /* Menyesuaikan lebar teks agar tidak terlalu penuh */
+                padding: 0 10px; /* Memberikan jarak di kiri dan kanan */
+                margin: 0 auto; /* Membuat bagian teks berada di tengah */
             }
 
             /* Pengelompokan adjustments */
@@ -371,8 +387,11 @@ body {
                 align-items: center;
                 gap: 20px;
             }
-
-           
+            .ekstra-item p {
+                font-size: 1.4rem; /* Ubah ukuran font agar lebih kecil */
+                font-weight: bold; /* Kurangi ketebalan untuk tampilan yang lebih profesional */
+            }
+                
             .carousel {
                 overflow-x: scroll; /* Pastikan bisa scroll pada layar kecil */
                 display: flex;
@@ -400,7 +419,7 @@ body {
             <!-- Navbar -->
             <nav class="navbar">
                 <div class="logo-container">
-                    <img src="img/Logo sekolah.png" alt="Logo SDN Poris Pelawad 6" class="logo-img">
+                    <img src="e:\xampp\htdocs\BERANDA 2\Logo sekolah.png" alt="Logo SDN Poris Pelawad 6" class="logo-img">
                     <span class="logo-text">SDN PORIS PELAWAD 6</span>
                 </div>
                 <ul class="nav-links" id="nav-links">
