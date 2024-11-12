@@ -133,7 +133,7 @@ body {
 
 .card img {
     width: 100%;
-    height: 150px;
+    height: 250px;
     object-fit: cover;
     border-radius: 8px;
 }
@@ -256,6 +256,14 @@ th {
     .navbar {
         padding: 1rem;
     }
+    .card img {
+        width: 100%;
+        height: auto; /* Menyesuaikan tinggi gambar berdasarkan lebar kontainer */
+        object-fit: cover; /* Memastikan gambar tetap terpotong dengan baik */
+        border-radius: 8px;
+        max-height: 300px; /* Menetapkan batas tinggi maksimum agar gambar tidak terlalu tinggi */
+    }
+
 }
 
 </style>
@@ -264,7 +272,7 @@ th {
         <div class="wrapper">
             <nav class="navbar">
                 <div class="logo-container">
-                    <img src="img/Logo sekolah.png" 
+                    <img src="img/Logo.png" 
                          alt="Logo SDN Poris Pelawad 6" class="logo-img">
                     <span class="logo-text">SDN PORIS PELAWAD 6</span>
                 </div>
@@ -324,126 +332,53 @@ th {
                 <button onclick="showDetails('Juhairiyah')">Lihat Detail</button>
             </div>
             <div class="card">
-                <img src="img/sekolah.jpeg" alt="Foto Pegawai">
-                <h3>Juhairiyah, S.Pd, M.Pd</h3>
-                <p>Kepala Sekolah</p>
+                <img src="img/Adinallah.png" alt="Foto Pegawai">
+                <h3>Adinallah, S.Pd.I</h3>
+                <p>Guru Bidang</p>
+                <button onclick="showDetails('Adinallah')">Lihat Detail</button>
+            </div>
+            <div class="card">
+                <img src="img/Mulyadi.png" alt="Foto Pegawai">
+                <h3>Mulyadi Rahman, S.Pd</h3>
+                <p>Guru Kelas</p>
+                <button onclick="showDetails('Mulyadi')">Lihat Detail</button>
+            </div>
+            <div class="card">
+                <img src="img/Apriyanti.png" alt="Foto Pegawai">
+                <h3>Apriyanti, S.Pd</h3>
+                <p>Guru Kelas</p>
+                <button onclick="showDetails('Apriyanti')">Lihat Detail</button>
+            </div>
+            <div class="card">
+                <img src="img/ARIB.png" alt="Foto Pegawai">
+                <h3>Muhammad Arib Jaudi, S.Pd</h3>
+                <p>Guru Kelas</p>
+                <button onclick="showDetails('Muhammad')">Lihat Detail</button>
+            </div>
+            <div class="card">
+                <img src="img/IKA.png" alt="Foto Pegawai">
+                <h3>Ika May Anjassari, S.Pd</h3>
+                <p>Guru Kelas</p>
                 <button onclick="showDetails('Ika')">Lihat Detail</button>
             </div>
             <div class="card">
-                <img src="img/sekolah.jpeg" alt="Foto Pegawai">
-                <h3>Juhairiyah, S.Pd, M.Pd</h3>
-                <p>Kepala Sekolah</p>
-                <button>Lihat Detail</button>
+                <img src="img/LAILA.png" alt="Foto Pegawai">
+                <h3>Lailatul Kodriyani, S.Pd</h3>
+                <p>Guru Kelas</p>
+                <button onclick="showDetails('Lailatul')">Lihat Detail</button>
             </div>
             <div class="card">
-                <img src="img/sekolah.jpeg" alt="Foto Pegawai">
-                <h3>Juhairiyah, S.Pd, M.Pd</h3>
-                <p>Kepala Sekolah</p>
-                <button>Lihat Detail</button>
+                <img src="img/DWI.png" alt="Foto Pegawai">
+                <h3>Dwi Mega, S.Pd</h3>
+                <p>Guru Kelas</p>
+                <button onclick="showDetails('Dwi')">Lihat Detail</button>
             </div>
             <div class="card">
-                <img src="img/sekolah.jpeg" alt="Foto Pegawai">
-                <h3>Juhairiyah, S.Pd, M.Pd</h3>
-                <p>Kepala Sekolah</p>
-                <button>Lihat Detail</button>
+                <img src="img/Yati.png" alt="Foto Pegawai">
+                <h3>Yati Suharyati, S.Pd</h3>
+                <p>Guru Kelas</p>
+                <button onclick="showDetails('Yati')">Lihat Detail</button>
             </div>
-            <div class="card">
-                <img src="img/sekolah.jpeg" alt="Foto Pegawai">
-                <h3>Juhairiyah, S.Pd, M.Pd</h3>
-                <p>Kepala Sekolah</p>
-                <button>Lihat Detail</button>
-            </div>
-            <div class="card">
-                <img src="img/sekolah.jpeg" alt="Foto Pegawai">
-                <h3>Juhairiyah, S.Pd, M.Pd</h3>
-                <p>Kepala Sekolah</p>
-                <button>Lihat Detail</button>
-            </div>
-            <div class="card">
-                <img src="img/sekolah.jpeg" alt="Foto Pegawai">
-                <h3>Juhairiyah, S.Pd, M.Pd</h3>
-                <p>Kepala Sekolah</p>
-                <button>Lihat Detail</button>
-            </div>
-            <div class="card">
-                <img src="img/sekolah.jpeg" alt="Foto Pegawai">
-                <h3>Juhairiyah, S.Pd, M.Pd</h3>
-                <p>Kepala Sekolah</p>
-                <button>Lihat Detail</button>
-            </div>
-            <div class="card">
-                <img src="img/sekolah.jpeg" alt="Foto Pegawai">
-                <h3>Juhairiyah, S.Pd, M.Pd</h3>
-                <p>Kepala Sekolah</p>
-                <button>Lihat Detail</button>
-            </div>
-            <div class="card">
-                <img src="img/sekolah.jpeg" alt="Foto Pegawai">
-                <h3>Juhairiyah, S.Pd, M.Pd</h3>
-                <p>Kepala Sekolah</p>
-                <button>Lihat Detail</button>
-            </div>
-            <div class="card">
-                <img src="img/sekolah.jpeg" alt="Foto Pegawai">
-                <h3>Juhairiyah, S.Pd, M.Pd</h3>
-                <p>Kepala Sekolah</p>
-                <button>Lihat Detail</button>
-            </div>
-            <div class="card">
-                <img src="img/sekolah.jpeg" alt="Foto Pegawai">
-                <h3>Juhairiyah, S.Pd, M.Pd</h3>
-                <p>Kepala Sekolah</p>
-                <button>Lihat Detail</button>
-            </div>
-            <div class="card">
-                <img src="img/sekolah.jpeg" alt="Foto Pegawai">
-                <h3>Juhairiyah, S.Pd, M.Pd</h3>
-                <p>Kepala Sekolah</p>
-                <button>Lihat Detail</button>
-            </div>
-            <div class="card">
-                <img src="img/sekolah.jpeg" alt="Foto Pegawai">
-                <h3>Juhairiyah, S.Pd, M.Pd</h3>
-                <p>Kepala Sekolah</p>
-                <button>Lihat Detail</button>
-            </div>
-            <div class="card">
-                <img src="img/sekolah.jpeg" alt="Foto Pegawai">
-                <h3>Juhairiyah, S.Pd, M.Pd</h3>
-                <p>Kepala Sekolah</p>
-                <button>Lihat Detail</button>
-            </div>
-            <div class="card">
-                <img src="img/sekolah.jpeg" alt="Foto Pegawai">
-                <h3>Juhairiyah, S.Pd, M.Pd</h3>
-                <p>Kepala Sekolah</p>
-                <button>Lihat Detail</button>
-            </div>
-            <div class="card">
-                <img src="img/sekolah.jpeg" alt="Foto Pegawai">
-                <h3>Juhairiyah, S.Pd, M.Pd</h3>
-                <p>Kepala Sekolah</p>
-                <button>Lihat Detail</button>
-            </div>
-            <div class="card">
-                <img src="img/sekolah.jpeg" alt="Foto Pegawai">
-                <h3>Juhairiyah, S.Pd, M.Pd</h3>
-                <p>Kepala Sekolah</p>
-                <button>Lihat Detail</button>
-            </div>
-            <div class="card">
-                <img src="img/sekolah.jpeg" alt="Foto Pegawai">
-                <h3>Juhairiyah, S.Pd, M.Pd</h3>
-                <p>Kepala Sekolah</p>
-                <button>Lihat Detail</button>
-            </div>
-            <div class="card">
-                <img src="img/sekolah.jpeg" alt="Foto Pegawai">
-                <h3>Juhairiyah, S.Pd, M.Pd</h3>
-                <p>Kepala Sekolah</p>
-                <button>Lihat Detail</button>
-            </div>
-            
         </div>
     </section>
 
@@ -486,13 +421,83 @@ th {
                 position: "Kepala Sekolah",
                 photo: "img/guru/bg.guru.jpeg"
             },
-            Ika: {
-                name: "Guru 2",
-                nip: "987654321",
-                ttl: "Jakarta, 15 April 1985",
+            Adinallah: {
+                name: "Adinallah, S.Pd.I",
+                nip: "-",
+                ttl: "Tangerang, 28 September 1986",
                 jk: "Laki-laki",
                 agama: "Islam",
-                pangkat: "III/b",
+                pangkat: "-",
+                position: "Guru Bidang PAI",
+                photo: "img/guru/guru2.jpg"
+            },
+            Mulyadi: {
+                name: "Mulyadi Rahman, S.Pd",
+                nip: "198111082022211004",
+                ttl: "Tangerang, 08 November 1981",
+                jk: "Laki-laki",
+                agama: "Islam",
+                pangkat: "IX",
+                position: "Guru Kelas",
+                photo: "img/guru/guru2.jpg"
+            },
+            Apriyanti: {
+                name: "Apriyanti, S.Pd",
+                nip: "199204192022212014",
+                ttl: "Bekasi, 19 April 1992",
+                jk: "Perempuan",
+                agama: "Islam",
+                pangkat: "IX",
+                position: "Guru Kelas",
+                photo: "img/guru/guru2.jpg"
+            },
+            Muhammad: {
+                name: "Muhammad Arib Jaudi, S,Pd",
+                nip: "-",
+                ttl: "Tangerang, 18 Juni 1992",
+                jk: "Laki-laki",
+                agama: "Islam",
+                pangkat: "-",
+                position: "Guru Kelas",
+                photo: "img/guru/guru2.jpg"
+            },
+            Ika: {
+                name: "Ika May Anjassari, S.Pd",
+                nip: "198905232022212003",
+                ttl: "Jakarta, 23 Mei 1989",
+                jk: "Perempuan",
+                agama: "Islam",
+                pangkat: "IX",
+                position: "Guru Kelas",
+                photo: "img/guru/guru2.jpg"
+            },
+            Lailatul: {
+                name: "Lailatul Kodriyani,S.Pd",
+                nip: "198904072022212017",
+                ttl: "Tangerang, 07 April 1989",
+                jk: "Perempuan ",
+                agama: "Islam",
+                pangkat: "IX",
+                position: "Guru Kelas",
+                photo: "img/guru/guru2.jpg"
+            },
+            Dwi: {
+                name: "Dwi Megawati, S.Pd",
+                nip: "199401202022212017",
+                ttl: "Tangerang, 20 Januari 1994",
+                jk: "Perempuan",
+                agama: "Islam",
+                pangkat: "IX",
+                position: "Guru Kelas",
+                photo: "img/guru/guru2.jpg"
+            },
+            Yati: {
+                name: "Yati Suharyah, S.Pd",
+                nip: "197806202022212011",
+                ttl: "Tangerang, 20 Juni 1978",
+                jk: "Perempuan",
+                agama: "Islam",
+                pangkat: "IX",
                 position: "Guru Kelas",
                 photo: "img/guru/guru2.jpg"
             },
