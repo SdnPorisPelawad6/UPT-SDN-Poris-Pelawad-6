@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDN Poris Pelawad 6</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+         /* Global Styles */
+         * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+}
+.wrapper {
+    flex: 1;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #708e7a;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem; /* Mengurangi padding */
+    position: relative;
+}
+
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 5px; /* Jarak dari tepi kiri */
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo-text {
+    font-size: 1.4rem; /* Ukuran yang sedikit lebih besar */
+    font-weight: bold;
+    color: white;
+    white-space: nowrap; /* Memastikan teks tetap satu baris */
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px; /* Ubah ukuran font jadi sedikit lebih besar */
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Dropdown Styles */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #111;
+    padding: 10px 15px;
+    display: block;
+}
+.dropdown-content a:hover {
+        background-color: #f0f0f0;
+    }
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+}
+.hero {
+    background: url('img/fasilitas.png') center/cover no-repeat;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%; /* Pastikan memenuhi lebar layar */
+    transition: background-image 1s ease-in-out; /* Animasi untuk pergantian background */
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 2; /* Agar teks berada di atas overlay */
+}
+
+.hero-overlay p {
+    color: white;
+    font-size: clamp(1.5rem, 5vw, 3rem); /* Gunakan clamp untuk responsivitas */
+    font-weight: bold;
+    margin: 0;
+    text-align: center; /* Pastikan teks berada di tengah */
+}
+
+/* Container */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 0 10px;
+}
+/* Content Section */
+.content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 800px;
+    margin: auto;
+}
+
+.box {
+    background-color: #a3c6a4;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.box h2 {
+    margin-bottom: 10px;
+    color: #004d00;
+    font-size: 1.5rem;
+}
+
+.box p {
+    line-height: 1.6;
+    text-align: justify;
+}
+/* Slider Container */
+.slider {
+    position: relative;
+    width: 80%; /* Lebar slider agar responsif */
+    max-width: 800px; /* Maksimum lebar slider */
+    margin: 40px auto; /* Agar slider berada di tengah */
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Slides Container */
+.slides {
+    display: flex;
+    transition: transform 0.8s ease-in-out; /* Animasi transisi */
+}
+
+/* Individual Slide */
+.slide {
+    min-width: 100%; /* Setiap slide mengambil 100% dari lebar container */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.slide img {
+    width: 70%; /* Ukuran gambar seragam */
+    height: auto;
+    max-height: 300px; /* Batas maksimum tinggi */
+    object-fit: cover; /* Menjaga proporsi gambar */
+    border-radius: 10px;
+}
+
+.slide p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+
+/* Navigation Buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    padding: 10px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 50%;
+    user-select: none;
+    z-index: 10;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Dots for navigation */
+.dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #708e7a;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 30px;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 10px;
+    flex-wrap: nowrap; /* Mencegah elemen membungkus ke bawah */
+    overflow-x: auto; /* Menambahkan scroll horizontal jika layar terlalu kecil */
+}
+
+.social-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.social-link i {
+    margin-right: 8px;
+    font-size: 20px; /* Ukuran tetap untuk ikon */
+}
+
+.social-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        right: 20px;
+        background-color: #708e7a;
+        padding: 10px;
+        border-radius: 8px;
+        z-index: 9999;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+    .logo-container {
+        margin-left: 10px; /* Sesuaikan lagi untuk tampilan mobile */
+    }
+
+    .logo-text {
+        font-size: 1rem; /* Ukuran font lebih kecil agar tetap satu baris */
+    }
+    .hamburger {
+        display: flex;
+    }
+
+    .footer {
+        font-size: 12px;
+    }
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero {
+        height: 200px; /* Sesuaikan tinggi untuk perangkat kecil */
+    }
+    .hero-overlay p {
+        font-size: clamp(1rem, 4vw, 2rem); /* Sesuaikan ukuran font */
+    }
+    /* Adjust Container Layout */
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px; /* Beri ruang pada sisi layar */
+    }
+    th, td {
+                font-size: 12px;
+                padding: 8px;
+            }
+    
+    .social-link {
+        font-size: 10px; /* Ukuran lebih kecil untuk teks */
+    }
+
+    .social-media {
+        gap: 10px; /* Kurangi jarak antar elemen */
+    }
+
+</style>
+<body>
+    <header>
+        <div class="wrapper">
+            <!-- Navbar -->
+            <nav class="navbar">
+                <div class="logo-container">
+                    <img src="img/Logo.png" alt="Logo SDN Poris Pelawad 6" class="logo-img">
+                    <span class="logo-text">SDN PORIS PELAWAD 6</span>
+                </div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Profil</a>
+                        <div class="dropdown-content">
+                            <a href="Visi dan Misi.html">Visi & Misi</a>
+                            <a href="Guru dan Tendik.html">Guru & Tendik</a>
+                            <a href="#">Sarana & Prasana</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Kesiswaan</a>
+                        <div class="dropdown-content">
+                            <a href="Tata Tertib.html">Tata Tertib</a>
+                            <a href="Ekstra.html">Ekstrakurikuler</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Adiwiyata</a>
+                        <div class="dropdown-content">
+                            <a href="Ipmlh.html">IPMLH</a>
+                            <a href="Visi,Misi,Tujuan Adiwiyata.html">Visi & Misi Adiwiyata</a>
+                            <a href="Struktur Adiwiyata.html">Struktur Adiwiyata</a>
+                            <a href="Program Adiwiyata.html">Program Adiwiyata</a>
+                            <a href="Dokumentasi Adiwiyata.html">Doumentasi</a>
+                        </div>
+                    </li>
+    
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Prestasi</a>
+                        <div class="dropdown-content">
+                            <a href="prestasi Sekolah.html">Prestasi Sekolah</a>
+                            <a href="prestasi guru.html">Prestasi Guru</a>
+                            <a href="Prestasi Siswa.html">Prestasi Murid</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Informasi</a>
+                        <div class="dropdown-content">
+                            <a href="Berita.html">Berita</a>
+                        </div>
+                    </li>
+                </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1></h1>
+        </div>
+
+        <!-- Content Section -->
+        <div class="content">
+            <div class="box">
+                <h2>SARANA</h2>
+                <p>
+                    Sarana sekolah adalah semua fasilitas atau perlengkapan yang digunakan secara langsung dalam proses pembelajaran. Sarana berfungsi untuk mendukung kegiatan belajar mengajar agar dapat berjalan dengan efektif dan efisien. Contoh sarana sekolah meliputi:Buku pelajaran, alat tulis, papan tulis,Komputer atau proyektor untuk media pembelajaran.
+                </p>
+            </div>
+            <div class="box">
+                <h2>PRASARANA</h2>
+                <p>
+                    Prasarana sekolah adalah segala sesuatu yang bersifat mendukung secara tidak langsung proses pembelajaran di sekolah. Prasarana lebih berkaitan dengan bangunan atau fasilitas yang memungkinkan terjadinya kegiatan pendidikan. Contoh prasarana sekolah meliputi:Gedung sekolah dan ruang kelas,Lapangan olahraga, taman, dan area parkir.
+                </p>
+            </div>
+            <div class="box">
+                <h2>Perbedaan Sarana dan Prasarana Sekolah</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspek</th>
+                            <th>Sarana Sekolah</th>
+                            <th>Prasarana Sekolah</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fungsi</td>
+                            <td>Digunakan langsung dalam pembelajaran.</td>
+                            <td>Mendukung pembelajaran secara tidak langsung.</td>
+                        </tr>
+                        <tr>
+                            <td>Contoh</td>
+                            <td>Buku, alat tulis, alat peraga.</td>
+                            <td>Gedung, ruang kelas, lapangan.</td>
+                        </tr>
+                        <tr>
+                            <td>Keterlibatan</td>
+                            <td>Digunakan siswa dan guru saat belajar.</td>
+                            <td>Membantu kelancaran operasional sekolah.</td>
+                        </tr>
+                        <tr>
+                            <td>Peran Utama</td>
+                            <td>Menjadi alat bantu dalam proses belajar mengajar.</td>
+                            <td>Menyediakan lingkungan yang mendukung proses belajar mengajar.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="slider">
+            <div class="slides">
+                <div class="slide">
+                    <img src="img/PERPUSTAKAAN.jpg" alt="Perpustakaan">
+                    <p>Perpustakaan</p>
+                </div>
+                <div class="slide">
+                    <img src="img/RUANG UKS.jpg" alt="UKS">
+                    <p>UKS</p>
+                </div>
+                <div class="slide">
+                    <img src="img/RUANG KOMPUTER.jpg" alt="Ruang Musik">
+                    <p>Lab Komputer</p>
+                </div>
+                <div class="slide">
+                    <img src="img/RUANG KELAS.jpg" alt="Ruang Musik">
+                    <p>Ruang Kelas</p>
+                </div>
+                <div class="slide">
+                    <img src="img/RUANG GURU.jpg" alt="Ruang Musik">
+                    <p>Ruang Guru</p>
+                </div>
+                <div class="slide">
+                    <img src="img/RUANG KEPALA SEKOLAH.jpg" alt="Ruang Musik">
+                    <p>Ruang Kepala Sekolah</p>
+                </div>
+                <div class="slide">
+                    <img src="img/MUSHOLAH.jpg" alt="Ruang Musik">
+                    <p>Mushola</p>
+                </div>
+                <div class="slide">
+                    <img src="img/LAPANGAN.jpg" alt="Ruang Musik">
+                    <p>Lapangan</p>
+                </div>
+                <div class="slide">
+                    <img src="img/PARKIR.jpg" alt="Ruang Musik">
+                    <p>Parkir</p>
+                </div>
+                <div class="slide">
+                    <img src="img/KAMAR MANDI.jpg" alt="Ruang Musik">
+                    <p>Kamar Mandi</p>
+                </div>
+                <div class="slide">
+                    <img src="img/KOLAM IKAN.jpg" alt="Ruang Musik">
+                    <p>Kolam</p>
+                </div>
+                <div class="slide">
+                    <img src="img/TUANG TATA USAHA.jpg" alt="Ruang Musik">
+                    <p>Ruang Tata Usaha</p>
+                </div>
+                <div class="slide">
+                    <img src="img/POS SATPAM.jpg" alt="Ruang Musik">
+                    <p>Pos Satpam</p>
+                </div>
+                <div class="slide">
+                    <img src="img/WASTAFEL.jpg" alt="Ruang Musik">
+                    <p>Tempat Cuci Tangan</p>
+                </div>
+                <div class="slide">
+                    <img src="img/GERBANG.jpg" alt="Ruang Musik">
+                    <p>Gerbang</p>
+                </div>
+            </div>
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+            <div class="dots">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+
+
+        <footer>
+            <div class="social-media">
+                <a href="https://www.instagram.com/sdnporispelawad6?igsh=NXExNnVwcHpuNWh3" class="social-link"><i class="fab fa-youtube"></i> Instagram</a>
+                <a href="https://youtube.com/@sdnpp6channel80?feature=shared" class="social-link"><i class="fab fa-instagram"></i> Youtube</a>
+            </div>
+            <p>&copy; 2024 SDN Poris Pelawad 06. All rights reserved.</p>
+        </footer>
+
+    <script>
+    let currentImageIndex = 0;
+    const images = ["img/fasilitas.png",]; // Tambahkan path gambar lainnya
+
+    // Function untuk mengganti background
+    function changeBackground() {
+        document.querySelector(".hero").style.backgroundImage = `url(${images[currentImageIndex]})`;
+        currentImageIndex = (currentImageIndex + 1) % images.length; // Loop kembali ke gambar pertama
+    }
+
+    // Set interval untuk pergantian background (misal, 5 detik)
+    setInterval(changeBackground, 4000);
+
+    // Hamburger menu toggle
+    function toggleMenu() {
+        const navLinks = document.getElementById("nav-links");
+        navLinks.classList.toggle("active");
+    }
+    //
+    const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-open');
+        });
+
+        let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function moveSlide(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+    let slides = document.querySelectorAll(".slide");
+    let dots = document.querySelectorAll(".dot");
+
+    if (n > slides.length) slideIndex = 1;
+    if (n < 1) slideIndex = slides.length;
+
+    slides.forEach(slide => slide.style.display = "none");
+    dots.forEach(dot => dot.className = dot.className.replace(" active", ""));
+
+    slides[slideIndex - 1].style.display = "flex";
+    dots[slideIndex - 1].className += " active";
+    }
+    // Fungsi untuk menampilkan keterangan
+    function showDescription(text) {
+        const descriptionBox = document.getElementById('description-text');
+        descriptionBox.textContent = text; // Ganti teks dengan deskripsi gambar
+    }
+    // Fungsi untuk menampilkan deskripsi program kerja
+    function showDescription(description, imageSrc) {
+    const descriptionBox = document.getElementById("description-box");
+    const descriptionText = document.getElementById("description-text");
+    const documentationImage = document.createElement("img");
+
+    // Set teks deskripsi
+    descriptionText.textContent = description;
+
+    // Tambahkan gambar dokumentasi
+    documentationImage.src = imageSrc;
+    documentationImage.alt = "Foto Dokumentasi";
+    documentationImage.style.width = "100%";
+    documentationImage.style.marginTop = "10px";
+
+    // Bersihkan konten sebelumnya
+    descriptionBox.innerHTML = "";
+    descriptionBox.appendChild(descriptionText);
+    descriptionBox.appendChild(documentationImage);
+}
+
+</script>
+</body>
+</html>

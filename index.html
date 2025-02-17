@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDN Poris Pelawad 6</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+         /* Global Styles */
+         * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+}
+.wrapper {
+    flex: 1;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #708e7a;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem; /* Mengurangi padding */
+    position: relative;
+}
+
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 5px; /* Jarak dari tepi kiri */
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo-text {
+    font-size: 1.4rem; /* Ukuran yang sedikit lebih besar */
+    font-weight: bold;
+    color: white;
+    white-space: nowrap; /* Memastikan teks tetap satu baris */
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px; /* Ubah ukuran font jadi sedikit lebih besar */
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Dropdown Styles */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #111;
+    padding: 10px 15px;
+    display: block;
+}
+.dropdown-content a:hover {
+        background-color: #f0f0f0;
+    }
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+}
+.hero {
+    background: url('img/Tampilan1.png') center/cover no-repeat;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%; /* Pastikan memenuhi lebar layar */
+    transition: background-image 1s ease-in-out; /* Animasi untuk pergantian background */
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 2; /* Agar teks berada di atas overlay */
+}
+
+.hero-overlay p {
+    color: white;
+    font-size: clamp(1.5rem, 5vw, 3rem); /* Gunakan clamp untuk responsivitas */
+    font-weight: bold;
+    margin: 0;
+    text-align: center; /* Pastikan teks berada di tengah */
+}
+
+/* Container */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 0 10px;
+}
+/* Features Section */
+.features-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
+    background-color: #fff;
+}
+
+.feature {
+    text-align: center;
+    max-width: 200px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.feature img {
+    display: block;
+    margin: 0 auto 15px;
+    max-width: 80px;
+}
+
+.feature h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+    color: #008000; /* Hijau */
+}
+
+.feature p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+/* Welcome Section */
+.welcome-section {
+    background-color: #ffffff;
+    padding: 30px 10px;
+    border-radius: 10px;
+}
+
+/* Layout for Welcome Section */
+.welcome-content {
+    align-items: center;
+}
+
+.image-wrapper {
+    flex: 0.4;
+    text-align: center;
+}
+
+.image-wrapper img {
+    max-width: 80%; /* Perkecil gambar kepala sekolah */
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.text-wrapper {
+    flex: 0.6;
+    padding-left: 15px;
+}
+
+.text-wrapper h2 {
+    font-size: 2.5rem;
+    color: #99b9a7;
+    margin-bottom: 5px;
+}
+
+.text-wrapper h3 {
+    font-size: 2rem;
+    color: #56726d;
+    margin-bottom: 10px;
+}
+.justify-text {
+    text-align: justify; /* Rata kanan dan kiri */
+}
+.kepala-sekolah-name {
+    margin-top: 20px; /* Beri jarak 20px dari atas */
+    font-size: 16px;  /* Atur ukuran font */
+    color: #333;      /* Warna teks */
+    text-align: left; /* Agar tetap rata kiri */
+}
+/* Divider Line */
+.divider-line {
+    width: 100%;
+    height: 10px; /* Atur ketebalan garis */
+    background-color: #e0e0e0; /* Warna abu-abu muda */
+    margin: 20px 0; /* Jarak atas dan bawah */
+}
+.program-section {
+            padding: 20px;
+            max-width: 1000px; /* Batas lebar kontainer */
+            margin: 0 auto; /* Agar elemen di tengah layar */
+            background-color: #ffffff;
+        }
+
+        .program-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Pastikan gambar dan teks dekat */
+            margin-bottom: 20px;
+            padding: 10px 0;
+            gap: 10px; /* Jarak minimal antara teks dan gambar */
+            border-bottom: 1px solid #ddd; /* Garis pembatas antar item */
+        }
+
+        .program-text {
+            flex: 1;
+            padding: 0 10px; /* Sedikit ruang antara teks dan kontainer */
+            text-align: left;
+        }
+
+        .program-text h2 {
+            font-size: 1.5rem; /* Ukuran teks judul */
+            color: #008000; /* Warna hijau */
+            margin-bottom: 5px; /* Jarak kecil di bawah judul */
+        }
+
+        .program-text p {
+            font-size: 1rem;
+            color: #555;
+            margin: 0;
+        }
+
+        .program-image {
+            flex: 1;
+            max-width: 45%; /* Ukuran gambar maksimal */
+            text-align: center;
+        }
+
+        .program-image img {
+            width: 100%; /* Gambar menyesuaikan kolom */
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 10px 15px;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Tiga kolom */
+            gap: 15px; /* Jarak antar elemen */
+        }
+
+        .card {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* Efek hover */
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px; /* Tinggi gambar tetap */
+            object-fit: cover; /* Gambar dipotong jika lebih besar */
+        }
+
+        .card-title {
+            background-color: #708e7a;
+            color: #fff;
+            font-size: 1rem;
+            padding: 10px 0;
+            text-transform: uppercase;
+        }   
+
+
+/* Footer Styling */
+footer {
+    background-color: #708e7a;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 30px;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 10px;
+    flex-wrap: nowrap; /* Mencegah elemen membungkus ke bawah */
+    overflow-x: auto; /* Menambahkan scroll horizontal jika layar terlalu kecil */
+}
+
+.social-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.social-link i {
+    margin-right: 8px;
+    font-size: 20px; /* Ukuran tetap untuk ikon */
+}
+
+.social-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        right: 20px;
+        background-color: #708e7a;
+        padding: 10px;
+        border-radius: 8px;
+        z-index: 9999;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+    .logo-container {
+        margin-left: 10px; /* Sesuaikan lagi untuk tampilan mobile */
+    }
+
+    .logo-text {
+        font-size: 1rem; /* Ukuran font lebih kecil agar tetap satu baris */
+    }
+    .hamburger {
+        display: flex;
+    }
+
+    .footer {
+        font-size: 12px;
+    }
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero {
+        height: 200px; /* Sesuaikan tinggi untuk perangkat kecil */
+    }
+    .hero-overlay p {
+        font-size: clamp(1rem, 4vw, 2rem); /* Sesuaikan ukuran font */
+    }
+    /* Adjust Container Layout */
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px; /* Beri ruang pada sisi layar */
+    }
+    .features-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .feature {
+        max-width: 90%;
+    }
+    /* Adjust Image and Text in Welcome Section */
+    .image-wrapper img {
+        max-width: 100%; /* Pastikan gambar menyesuaikan ukuran layar */
+    }
+
+    .text-wrapper h2 {
+        font-size: 2rem;
+        text-align: center; /* Rata tengah untuk tampilan lebih seimbang */
+    }
+
+    .text-wrapper h3 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .program-item {
+                flex-direction: column; /* Susun vertikal */
+                text-align: center;
+                gap: 10px;
+            }
+
+            .program-image {
+                max-width: 100%;
+            }
+
+            .program-text {
+                padding: 10px 0;
+            }
+    .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* Dua kolom */
+    }
+    /* Divider Line */
+    .divider-line {
+        height: 5px; /* Tipiskan garis untuk tampilan mobile */
+    }
+    .social-link {
+        font-size: 10px; /* Ukuran lebih kecil untuk teks */
+    }
+
+    .social-media {
+        gap: 10px; /* Kurangi jarak antar elemen */
+    }
+    @media (max-width: 480px) {
+        .grid-container {
+            grid-template-columns: 1fr; /* Satu kolom */
+        }
+    }
+
+</style>
+<body>
+    <header>
+        <div class="wrapper">
+            <!-- Navbar -->
+            <nav class="navbar">
+                <div class="logo-container">
+                    <img src="img/Logo.png" alt="Logo SDN Poris Pelawad 6" class="logo-img">
+                    <span class="logo-text">SDN PORIS PELAWAD 6</span>
+                </div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Profil</a>
+                        <div class="dropdown-content">
+                            <a href="Visi dan Misi.html">Visi & Misi</a>
+                            <a href="Guru dan Tendik.html">Guru & Tendik</a>
+                            <a href="sarana dan prasarana.html">Sarana & Prasana</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Kesiswaan</a>
+                        <div class="dropdown-content">
+                            <a href="Tata Tertib.html">Tata Tertib</a>
+                            <a href="Ekstra.html">Ekstrakurikuler</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Adiwiyata</a>
+                        <div class="dropdown-content">
+                            <a href="Ipmlh.html">IPMLH</a>
+                            <a href="Visi,Misi,Tujuan Adiwiyata.html">Visi & Misi Adiwiyata</a>
+                            <a href="Struktur Adiwiyata.html">Struktur Adiwiyata</a>
+                            <a href="Program Adiwiyata.html">Program Adiwiyata</a>
+                            <a href="Dokumentasi Adiwiyata.html">Dokumentasi</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Prestasi</a>
+                        <div class="dropdown-content">
+                            <a href="prestasi Sekolah.html">Prestasi Sekolah</a>
+                            <a href="prestasi guru.html">Prestasi Guru</a>
+                            <a href="Prestasi Siswa.html">Prestasi Murid</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Informasi</a>
+                        <div class="dropdown-content">
+                            <a href="Berita.html">Berita</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1></h1>
+        <p></p>
+    </section>
+    <section class="features-section">
+        <div class="feature">
+            <img src="img/akre.png" alt="Terakreditasi A">
+            <h3>Terakreditasi A</h3>
+            <p>Terakreditasi A (Sangat Baik) Oleh BAN-SM Tahun 2019</p>
+        </div>
+        <div class="feature">
+            <img src="img/Logo.png" alt="Sekolah Adiwiyata">
+            <h3>Sekolah Adiwiyata</h3>
+            <p>Lingkungan Sekolah yang Asri dan Nyaman untuk Belajar</p>
+        </div>
+    </section>
+    <div class="divider-line"></div>
+    <!-- Section: Sambutan Kepala Sekolah -->
+    <section class="welcome-section">
+        <div class="container">
+            <div class="image-wrapper">
+                <img src="img/guru/IBU JUHE.png" alt="Foto Kepala Sekolah">
+            </div>
+            <div class="text-wrapper">
+                <h2>Sambutan Kepala Sekolah</h2>
+                <h3>SDN Poris Pelawad 6</h3>
+                <!-- Tambahkan div untuk teks yang akan di-justify -->
+            <div class="justify-text">
+                <p>Assalamu'alaikum Warahmatullahi Wabarakatuh,</p>
+                <p>
+                    Salam Sejahtera untuk kita semua. Selamat datang di situs web resmi SDN Poris Pelawad 6. 
+                    Kami berharap situs ini dapat menjadi jendela informasi sekaligus media komunikasi bagi siswa, 
+                    orang tua, dan masyarakat.
+                </p>
+                <p>
+                    Melalui situs ini, kami berkomitmen untuk terus memberikan informasi terkini terkait kegiatan 
+                    sekolah, prestasi siswa, serta program-program pendidikan yang mendukung perkembangan potensi 
+                    anak didik kami. Semoga keberadaan situs ini dapat mempererat kerja sama dan partisipasi aktif 
+                    semua pihak dalam memajukan pendidikan di sekolah kita tercinta.
+                </p>
+                <p>
+                    Terima kasih atas kunjungan Anda. Semoga SDN Poris Pelawad 6 semakin berprestasi dan berkontribusi 
+                    dalam membentuk generasi penerus bangsa yang unggul dan berkarakter.
+                </p>
+                <p>Wassalamu'alaikum Warahmatullahi Wabarakatuh.</p>
+            </div>    
+                <!-- Nama Kepala Sekolah dengan jarak tambahan -->
+            <p class="kepala-sekolah-name">
+                <strong>Juhairiyah , S.pd, M.pd</strong><br>
+                Kepala Sekolah SDN Poris Pelawad 6
+            </p>
+            </div>
+        </div>
+    </section>
+    <div class="divider-line"></div>
+    <section class="program-section">
+        <div class="program-item">
+            <div class="program-text">
+                <h2>Program Unggulan</h2>
+                <p>Baca tulis Al-Qur'an dengan guru berkualitas</p>
+            </div>
+            <div class="program-image">
+                <img src="img/Btq.jpeg" alt="Program Unggulan">
+            </div>
+        </div>
+    
+        <div class="program-item">
+            <div class="program-text">
+                <h2>Program Tangerang Mengaji</h2>
+                <p>Program Yang diadakan Pemerintah Untuk setiap sekolah</p>
+            </div>
+            <div class="program-image">
+                <img src="img/Tangerang Mengaji.jpeg" alt="Program Tangerang Mengaji">
+            </div>
+        </div>
+    
+        <div class="program-item">
+            <div class="program-text">
+                <h2>Tadarus Jum'at</h2>
+                <p>Rutinitas Tadarus bersama sekolah sdn poris pelawad 4&6</p>
+            </div>
+            <div class="program-image">
+                <img src="img/Program Jumat.jpeg" alt="Tadarus Jum'at">
+            </div>
+        </div>
+    </section>
+    <div class="divider-line"></div>
+    <!-- Bagian Galeri Kegiatan -->
+    <section class="section">
+        <h2>Galeri Kegiatan</h2>
+        <div class="grid-container">
+            <div class="card">
+                <img src="img/Upacara Senin.jpg" alt="Upacara Senin">
+                <div class="card-title">Upacara Senin</div>
+            </div>
+            <div class="card">
+                <img src="img/Program Jumat.jpeg" alt="Tadarus Jum'at">
+                <div class="card-title">Tadarus Jum'at</div>
+            </div>
+            <div class="card">
+                <img src="img/Tangerang Mengaji.jpeg" alt="Tangerang Mengaji">
+                <div class="card-title">Tangerang Mengaji</div>
+            </div>
+            <div class="card">
+                <img src="img/Penyambutan Siswa.jpeg" alt="Penyambutan Siswa">
+                <div class="card-title">Penyambutan Siswa</div>
+            </div>
+            <div class="card">
+                <img src="img/Gelar Karya.jpeg" alt="Gelar Karya P5">
+                <div class="card-title">Gelar Karya P5</div>
+            </div>
+            <div class="card">
+                <img src="img/Classmet.jpeg" alt="Class Meeting">
+                <div class="card-title">Class Meeting</div>
+            </div>
+            <div class="card">
+                <img src="img/Pekan Literasi.jpeg" alt="Pekan Literasi">
+                <div class="card-title">Pekan Literasi</div>
+            </div>
+            <div class="card">
+                <img src="img/Solat Jumat.jpeg" alt="Sholat Berjamaah">
+                <div class="card-title">Sholat Berjamaah</div>
+            </div>
+            <div class="card">
+                <img src="img/Pembelajaran.jpeg" alt="Pembelajaran Luar Kelas">
+                <div class="card-title">Pembelajaran Luar Kelas</div>
+            </div>
+            <div class="card">
+                <img src="img/Hari Guru.jpeg" alt="Hari Guru">
+                <div class="card-title">Hari Guru</div>
+            </div>
+            <div class="card">
+                <img src="img/Maulid.jpeg" alt="Maulid Nabi Muhammad">
+                <div class="card-title">Maulid Nabi Muhammad</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Video Kegiatan</h2>
+        <div class="grid-container">
+            <div class="card">
+                <iframe width="100%" height="150" 
+                        src="https://www.youtube.com/embed/y0hMbR1Q2Vw" 
+                        title="Video Kegiatan" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+                <div class="card-title">Lomba futsal dalam memperingati hari guru nasional dan hut pgri </div>
+            </div>
+            <div class="card">
+                <iframe width="100%" height="150" 
+                        src="https://www.youtube.com/embed/aV1GLvFEaPE" 
+                        title="Video Kegiatan" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+                <div class="card-title">Lomba Pidato Bahasa inggris 'Menyayangi Anak Yatim'</div>
+            </div>
+            <div class="card">
+                <iframe width="100%" height="150" 
+                        src="https://www.youtube.com/embed/yUmChEDBfeM" 
+                        title="Video Kegiatan" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+                <div class="card-title">O2SN Cabang Lomba Pecak Silat Putra oleh ananda "Rayi"</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-media">
+            <a href="https://www.instagram.com/sdnporispelawad6?igsh=NXExNnVwcHpuNWh3" class="social-link"><i class="fab fa-youtube"></i> Instagram</a>
+            <a href="https://youtube.com/@sdnpp6channel80?feature=shared" class="social-link"><i class="fab fa-instagram"></i> Youtube</a>
+        </div>
+        <p>&copy; 2024 SDN Poris Pelawad 06. All rights reserved.</p>
+    </footer>
+    <script>
+    let currentImageIndex = 0;
+    const images = ["img/Tampilan1.png", "img/Tampilan2.png",]; // Tambahkan path gambar lainnya
+
+    // Function untuk mengganti background
+    function changeBackground() {
+        document.querySelector(".hero").style.backgroundImage = `url(${images[currentImageIndex]})`;
+        currentImageIndex = (currentImageIndex + 1) % images.length; // Loop kembali ke gambar pertama
+    }
+
+    // Set interval untuk pergantian background (misal, 5 detik)
+    setInterval(changeBackground, 4000);
+
+    // Hamburger menu toggle
+    function toggleMenu() {
+        const navLinks = document.getElementById("nav-links");
+        navLinks.classList.toggle("active");
+    }
+</script>
+</body>
+</html>
